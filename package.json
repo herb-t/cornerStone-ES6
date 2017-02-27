@@ -1,0 +1,41 @@
+{
+  "name": "webvr-prototyping",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf out gae/static",
+    "mkdir": "mkdirp out",
+    "serve": "browser-sync start --server out --files out --no-ghost-mode --no-notify --no-open",
+    "watch": "npm-run-all clean mkdir --parallel watch:*",
+    "watch:copy": "cpx \"static/**/*\" out --watch",
+    "watch:styl": "node build-stylus.js --watch",
+    "watch:main": "node build-rollup.js --watch",
+    "build": "npm-run-all clean mkdir --parallel build:*",
+    "build:copy": "cpx \"static/**/*\" out",
+    "build:styl": "node build-stylus.js",
+    "build:main": "node build-rollup.js",
+    "gae": "npm-run-all build gae:*",
+    "gae:static": "cpx \"out/**/*\" gae/static"
+  },
+  "dependencies": {
+    "debug": "^2.6.0",
+    "load-bmfont": "^1.2.5",
+    "query-string": "^4.2.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "cpx": "^1.5.0",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^4.0.1",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.41.4",
+    "rollup-plugin-commonjs": "^7.0.0",
+    "rollup-plugin-node-globals": "^1.1.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-vue": "^2.2.20",
+    "stylus": "^0.54.5",
+    "yargs": "^6.6.0"
+  }
+}
