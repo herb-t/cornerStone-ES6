@@ -21,7 +21,9 @@
   "dependencies": {
     "debug": "^2.6.0",
     "load-bmfont": "^1.2.5",
-    "query-string": "^4.2.3"
+    "query-string": "^4.2.3",
+    "vue": "^2.1.10",
+    "vuex": "^2.1.2"
   },
   "devDependencies": {
     "browser-sync": "^2.18.7",

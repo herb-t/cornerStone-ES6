@@ -13,12 +13,14 @@
     <!-- Stylesheets -->
     <link rel='stylesheet' href='index.css'>
 
-    <!-- Include some big libs as global, this one having issues with Rollup -->
+    <!-- Include some big libs as global, these having issues with Rollup -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src='https://unpkg.com/vue@2.1.10/dist/vue.js'></script>
 
   </head>
 
   <body>
+    <div id="app">{{ message }}</div>
 
     <img src="images/logo.png" alt="logo">
 

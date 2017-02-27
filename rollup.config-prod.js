@@ -16,7 +16,14 @@ module.exports = {
   exports: 'none',
   indent: false,
 
+  external: [],
+
+  globals: {},
+
   plugins: [
+
+    // import vue templates as render functions
+    vue({ include: 'src/**/*.vue', compileTemplate: true }),
 
     // import glsl files as strings
     string({ include: 'src/**/*.glsl' }),
