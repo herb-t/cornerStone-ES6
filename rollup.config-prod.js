@@ -1,4 +1,3 @@
-const vue = require('rollup-plugin-vue');
 const string = require('rollup-plugin-string');
 const commonjs = require('rollup-plugin-commonjs');
 const noderesolve = require('rollup-plugin-node-resolve');
@@ -15,6 +14,14 @@ module.exports = {
   useStrict: true,
   exports: 'none',
   indent: false,
+
+  external: [
+
+  ],
+
+  globals: {
+
+  },
 
   plugins: [
 
