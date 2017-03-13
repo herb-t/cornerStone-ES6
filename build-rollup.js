@@ -6,6 +6,8 @@ const debug = require('debug')('build:rollup');
 const rollup = require('rollup');
 const { watch, args } = require('./build-util');
 
+if (args.prod) debug('using prod config');
+
 const config = args.prod
   ? require('./rollup.config-prod')
   : require('./rollup.config-dev');

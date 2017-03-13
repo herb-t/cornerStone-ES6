@@ -4,36 +4,39 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf out gae/static",
-    "mkdir": "mkdirp out",
     "serve": "browser-sync start --server out --files out --no-ghost-mode --no-notify --no-open",
+    "clean": "shx rm -rf out gae/static",
+    "mkdir": "shx mkdir out",
     "watch": "npm-run-all clean mkdir --parallel watch:*",
     "watch:copy": "cpx \"static/**/*\" out --watch",
     "watch:styl": "node build-stylus.js --watch",
     "watch:main": "node build-rollup.js --watch",
-    "build": "npm-run-all clean mkdir --parallel build:*",
+    "build": "npm-run-all clean mkdir build:*",
     "build:copy": "cpx \"static/**/*\" out",
     "build:styl": "node build-stylus.js",
     "build:main": "node build-rollup.js",
-    "gae": "npm-run-all build gae:*",
+    "prod": "npm-run-all clean mkdir prod:*",
+    "prod:copy": "cpx \"static/**/*\" out",
+    "prod:indx": "shx mv \"out/index.prod.html\" \"out/index.html\"",
+    "prod:styl": "node build-stylus.js --prod",
+    "prod:main": "node build-rollup.js --prod",
+    "gae": "npm-run-all prod gae:*",
     "gae:static": "cpx \"out/**/*\" gae/static"
   },
   "dependencies": {
     "debug": "^2.6.0",
-    "load-bmfont": "^1.2.5",
-    "query-string": "^4.2.3"
+    "ismobilejs": "^0.4.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.7",
     "cpx": "^1.5.0",
-    "mkdirp": "^0.5.1",
     "npm-run-all": "^4.0.1",
-    "rimraf": "^2.5.4",
     "rollup": "^0.41.4",
     "rollup-plugin-commonjs": "^7.0.0",
-    "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-string": "^2.0.2",
+    "shx": "^0.2.2",
     "stylus": "^0.54.5",
     "yargs": "^6.6.0"
   }

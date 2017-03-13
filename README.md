@@ -1,18 +1,11 @@
-# CornerStone ES6 - a simple project seed with ES6
+## cornerStone-ES6
 
-## Getting Started
+##### Building
 
-If you don't have Node.js already,
+All of the build scripts are run through `npm`. Here are some common tasks:
 
-* [Node](https://nodejs.org/)
-
-To install local project dependencies, run:
-
-  `npm install`
-
-### Running the Dev build
-Run these processes in two separate console windows/tabs:
-
-  process 1: `npm run watch` to build into the `out` folder
-
-  process 2: `npm run serve` to serve what is in the `out` folder
+`npm run build` - Rebuild the project into the `out` folder.
+`npm run watch` - Rebuild the project and watch for changes.
+`npm run serve` - Start a BrowserSync server, serving the `out` folder.
+`npm run prod`  - Rebuild the project for production; this will take a little extra time.
+`npm run gae`   - Rebuild the project for production and copy the `out` folder to `gae/static` to prep for deployment.

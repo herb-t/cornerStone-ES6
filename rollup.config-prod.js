@@ -1,13 +1,13 @@
 const string = require('rollup-plugin-string');
+const replace = require('rollup-plugin-replace');
 const commonjs = require('rollup-plugin-commonjs');
 const noderesolve = require('rollup-plugin-node-resolve');
-const nodeglobals = require('rollup-plugin-node-globals');
 
 module.exports = {
 
   context: 'window',
   format: 'iife',
-  entry: 'src/index.js',
+  entry: 'src/index.prod.js',
   dest: 'out/index.js',
 
   sourceMap: false,
@@ -15,25 +15,19 @@ module.exports = {
   exports: 'none',
   indent: false,
 
-  external: [
+  external: [],
 
-  ],
-
-  globals: {
-
-  },
+  globals: {},
 
   plugins: [
 
-    // import glsl files as strings
-    string({ include: 'src/**/*.glsl' }),
+    replace({ 'process.env.NODE_ENV': '"production"' }), // https://vuejs.org/v2/guide/deployment.html
+
+    string({ include: 'src/**/*.glsl' }), // import glsl files as strings
 
     commonjs(), // best-effort translation from CJS module format to ES6 module format
 
-    nodeglobals(), // shim node.js globals like `process` so that node.js packages work
-
-    // resolve module paths using the node_modules folder
-    noderesolve({ jsnext: true, browser: true }),
+    noderesolve({ jsnext: true, browser: true }), // resolve module paths using the node_modules folder
 
   ]
 
