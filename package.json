@@ -28,10 +28,12 @@
     "ismobilejs": "^0.4.0"
   },
   "devDependencies": {
+    "babel-preset-es2015-rollup": "^3.0.0",
     "browser-sync": "^2.18.7",
     "cpx": "^1.5.0",
     "npm-run-all": "^4.0.1",
     "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^7.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-replace": "^1.1.1",

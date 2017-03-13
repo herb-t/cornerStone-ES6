@@ -2,6 +2,7 @@ const string = require('rollup-plugin-string');
 const replace = require('rollup-plugin-replace');
 const commonjs = require('rollup-plugin-commonjs');
 const noderesolve = require('rollup-plugin-node-resolve');
+const babel = require('rollup-plugin-babel');
 
 module.exports = {
 
@@ -28,6 +29,8 @@ module.exports = {
     commonjs(), // best-effort translation from CJS module format to ES6 module format
 
     noderesolve({ jsnext: true, browser: true }), // resolve module paths using the node_modules folder
+
+    babel({ exclude: 'node_modules/**'}),
 
   ]
 
