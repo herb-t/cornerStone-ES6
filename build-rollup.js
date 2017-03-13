@@ -52,9 +52,7 @@ function error(err) {
 }
 
 if (args.watch) {
-
   watch('src', { include: /(glsl|js|vue)$/gi }, build);
-
 }
 
 build();

@@ -30,5 +30,4 @@ module.exports = {
     noderesolve({ jsnext: true, browser: true }), // resolve module paths using the node_modules folder
 
   ]
-
 };
