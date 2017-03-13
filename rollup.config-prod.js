@@ -3,6 +3,7 @@ const replace = require('rollup-plugin-replace');
 const commonjs = require('rollup-plugin-commonjs');
 const noderesolve = require('rollup-plugin-node-resolve');
 const babel = require('rollup-plugin-babel');
+const uglify = require('rollup-plugin-uglify');
 
 module.exports = {
 
@@ -31,6 +32,8 @@ module.exports = {
     noderesolve({ jsnext: true, browser: true }), // resolve module paths using the node_modules folder
 
     babel({ exclude: 'node_modules/**'}),
+
+    uglify()
 
   ]
 
