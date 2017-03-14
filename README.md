@@ -20,6 +20,5 @@ All of the build scripts are run through `npm`. Here are some common tasks:
 
 `npm run prod`  - Rebuild the project for production; this will take a little extra time.
 
-`npm run gae`   - Rebuild the project for production and copy the `out` folder to `gae/static` to prep for deployment.
 
 run `npm run watch`, then `npm run serve` in another window/tab for development
