@@ -1,3 +1,4 @@
+const vue = require('rollup-plugin-vue');
 const string = require('rollup-plugin-string');
 const replace = require('rollup-plugin-replace');
 const commonjs = require('rollup-plugin-commonjs');
@@ -15,13 +16,17 @@ module.exports = {
   exports: 'none',
   indent: false,
 
-  external: [],
+  external: ['vue'],
 
-  globals: {},
+  globals: {
+    'vue': 'Vue'
+  },
 
   plugins: [
 
     replace({ 'process.env.NODE_ENV': '"development"' }), // https://vuejs.org/v2/guide/deployment.html
+
+    vue({ include: 'src/**/*.vue', compileTemplate: true }), // import vue templates as render functions
 
     string({ include: 'src/**/*.glsl' }), // import glsl files as strings
 

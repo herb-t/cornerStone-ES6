@@ -19,13 +19,13 @@
     "prod:copy": "cpx \"static/**/*\" out",
     "prod:indx": "shx mv \"out/index.prod.html\" \"out/index.html\"",
     "prod:styl": "node build-stylus.js --prod",
-    "prod:main": "node build-rollup.js --prod",
-    "gae": "npm-run-all prod gae:*",
-    "gae:static": "cpx \"out/**/*\" gae/static"
+    "prod:main": "node build-rollup.js --prod"
   },
   "dependencies": {
     "debug": "^2.6.0",
-    "ismobilejs": "^0.4.0"
+    "ismobilejs": "^0.4.0",
+    "vue": "^2.2.1",
+    "vuex": "^2.1.2"
   },
   "devDependencies": {
     "babel-preset-es2015-rollup": "^3.0.0",
@@ -39,6 +39,7 @@
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-string": "^2.0.2",
     "rollup-plugin-uglify": "^1.0.1",
+    "rollup-plugin-vue": "^2.2.20",
     "shx": "^0.2.2",
     "stylus": "^0.54.5",
     "yargs": "^6.6.0"
