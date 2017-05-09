@@ -1,4 +1,4 @@
-# CornerStone ES6 - a simple project seed with ES6
+# CornerStone ES6 - a project template with ES6
 
 ## Getting Started
 
@@ -10,6 +10,7 @@ To install local project dependencies, run:
 
   `npm install`
 
+## Building
 All of the build scripts are run through `npm`. Here are some common tasks:
 
 `npm run build` - Rebuild the project into the `out` folder.
@@ -22,3 +23,12 @@ All of the build scripts are run through `npm`. Here are some common tasks:
 
 
 run `npm run watch`, then `npm run serve` in another window/tab for development
+
+##### Static Dependencies
+Some of the dependencies are included as static external scripts, because the are incompatible with Rollup, they slow down the build process too much, or they aren't available through NPM.
+
+| Library         | Version |
+| --------------- | -------:|
+| Font Awesome    | 4.7.0   |
+| Normalize.css   | 5.0.0   |
+| TweenMax        | 1.19.0  |
