@@ -1,10 +1,9 @@
-const string = require('rollup-plugin-string');
-const replace = require('rollup-plugin-replace');
+const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
+const eslint = require('rollup-plugin-eslint');
 const noderesolve = require('rollup-plugin-node-resolve');
 
 module.exports = {
-
   context: 'window',
   format: 'iife',
   entry: 'src/index.js',
@@ -20,14 +19,15 @@ module.exports = {
   globals: {},
 
   plugins: [
+    // lint first
+    eslint({ throwError: true }),
 
-    replace({ 'process.env.NODE_ENV': '"development"' }), // https://vuejs.org/v2/guide/deployment.html
+    // best-effort translation from CJS module format to ES6 module format
+    commonjs(),
 
-    string({ include: 'src/**/*.glsl' }), // import glsl files as strings
+    // resolve module paths using the node_modules folder
+    noderesolve({ jsnext: true, browser: true }),
 
-    commonjs(), // best-effort translation from CJS module format to ES6 module format
-
-    noderesolve({ jsnext: true, browser: true }), // resolve module paths using the node_modules folder
-
+    babel({ runtimeHelpers: true, exclude: 'node_modules/**' })
   ]
 };
