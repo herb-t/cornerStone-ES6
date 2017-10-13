@@ -1,4 +1,8 @@
-# CornerStone ES6 - a project template with ES6
+# CornerStone ES6 ⚛
+
+![Herb](static/images/logo.png)
+
+A Rollup boilerplate with babel and node-sass.
 
 ## Getting Started
 
