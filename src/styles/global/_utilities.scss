@@ -1,0 +1,31 @@
+// ================================
+// == utility =====================
+// ================================
+
+// - - - - - - - - - - - - - - - - - - -
+// - - variables
+$primary-dark: #000;
+$primary-lite: #fff;
+
+// - - - - - - - - - - - - - - - - - - -
+// - - mixins
+@mixin background() {
+  background: #fff;
+}
+
+// - - - - - - - - - - - - - - - - - - -
+// - - functions
+
+// - - - - - - - - - - - - - - - - - - -
+// - - utilities
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
