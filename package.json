@@ -1,5 +1,5 @@
 {
-  "name": "best-hero-ever",
+  "name": "cornerstone-ES6",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
     "format": "prettier-eslint --write \"src/**/*.js\"",
     "watch": "npm-run-all clean mkdir format --parallel watch:*",
     "watch:copy": "cpx \"static/**/*\" out --watch",
-    "watch:styl": "node build-stylus.js --watch",
+    "watch:sass": "node build-sass.js --watch",
     "watch:main": "node build-rollup.js --watch",
     "build": "npm-run-all clean mkdir format build:*",
     "build:copy": "cpx \"static/**/*\" out",
-    "build:styl": "node build-stylus.js",
+    "build:sass": "node build-sass.js",
     "build:main": "node build-rollup.js",
     "prod": "npm-run-all clean mkdir prod:*",
     "prod:copy": "cpx \"static/**/*\" out",
-    "prod:styl": "node build-stylus.js --prod",
+    "prod:sass": "node build-sass.js --prod",
     "prod:main": "node build-rollup.js --prod",
     "gae": "npm-run-all prod gae:*",
     "gae:static": "cpx \"out/**/*\" gae/static"
@@ -29,6 +29,7 @@
   ],
   "dependencies": {
     "debug": "^2.6.0",
+    "flexbox-grid-sass": "^4.1.0",
     "is_js": "^0.9.0"
   },
   "devDependencies": {
@@ -39,6 +40,7 @@
     "browser-sync": "^2.18.7",
     "cpx": "^1.5.0",
     "custom-event": "^1.0.1",
+    "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.1",
     "pepjs": "^0.4.2",
     "pre-commit": "^1.2.2",
@@ -50,7 +52,6 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-uglify": "^1.0.1",
     "shx": "^0.2.2",
-    "stylus": "^0.54.5",
     "yargs": "^6.6.0"
   }
 }

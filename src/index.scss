@@ -1,0 +1,32 @@
+@charset 'utf-8';
+
+// - - global/utilities
+// sass variables, mixins, utilities & extends
+@import 'styles/global/utilities';
+
+// - - global/base
+// base-level tags (body, p, etc..)
+@import 'styles/global/base';
+
+// - - global/layout
+// margin, padding, box-model, etc....
+@import 'styles/global/layout';
+
+// - - global/typography
+// fonts n' stuff
+@import 'styles/global/typography';
+
+// - - - - - - - - - - - - - - - - - - -
+// - - modules
+// page/view specific styles
+@import 'styles/modules/home';
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - inbox
+// the inbox allows developers, and those not actively working on the project
+// to quickly add styles that are easily seen by the maintainer of the file.
+
+// - - - - - - - - - - - - - - - - - - -
+// - - shame
+// need to add a quick fix, hack, or questionable technique?  add it here, fix it later.
