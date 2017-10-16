@@ -2,6 +2,7 @@ const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
 const eslint = require('rollup-plugin-eslint');
 const noderesolve = require('rollup-plugin-node-resolve');
+const vue = require('rollup-plugin-vue');
 
 module.exports = {
   context: 'window',
@@ -14,9 +15,13 @@ module.exports = {
   exports: 'none',
   indent: false,
 
-  external: [],
+  external: [
+    'vue'
+  ],
 
-  globals: {},
+  globals: {
+    'vue': 'Vue'
+  },
 
   plugins: [
     // lint first
@@ -24,6 +29,8 @@ module.exports = {
 
     // best-effort translation from CJS module format to ES6 module format
     commonjs(),
+
+    vue({ include: 'src/**/*.vue', compileTemplate: true }), // import vue templates as render functions
 
     // resolve module paths using the node_modules folder
     noderesolve({ jsnext: true, browser: true }),

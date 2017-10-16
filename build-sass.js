@@ -24,7 +24,7 @@ function renderBundle(file) {
 
   sass.render({
     file: file,
-    includePaths: [ 'src/styles/base', 'src/styles' ],
+    includePaths: [ 'src/**/**/*.scss', 'src/styles/base', 'src/styles' ],
     outFile: './out/index.css',
     outputStyle: output
   }, writeBundle);
